@@ -1,0 +1,9 @@
+<%- if flash.any? %>
+  <%- flash.keys.each do |flash_key| %>
+    <%- next if flash_key.to_s == 'timedout' %>
+    <div class="alert-message <%= flash_key %>">
+      <a class="close" data-dismiss="alert" href="#"></a>
+      <%= flash.discard(flash_key) %>
+    </div>
+  <%- end %>
+<%- end %>

@@ -1,0 +1,13 @@
+<%- if f.error_notification %>
+  <div class="alert alert-error fade in">
+    <a class="close" data-dismiss="alert" href="#">&times;</a>
+    <%= f.error_notification %>
+    <%- if f.object.errors[:base].size > 0 %>
+      <ul>
+        <%- f.object.errors[:base].each do |error| %>
+          <li><%= error %></li>
+        <%- end %>
+      </ul>
+    <%- end %>
+  </div>
+<%- end %>
