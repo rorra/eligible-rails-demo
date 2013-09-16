@@ -1,4 +1,9 @@
-<div class="starter-template">
-  <h1>Bootstrap starter template</h1>
-  <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+<div class="main-content">
+  <h1>Eligible Demo Sample App</h1>
+
+  <%- if user_signed_in? %>
+    <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+  <%- else %>
+    Please, <%= link_to "Login", new_user_session_path %> or <%= link_to "Create an account", new_user_registration_path %> to test our services.
+  <%- end %>
 </div>
