@@ -1,4 +1,4 @@
-== README
+## README
 
 This is a sample app to show how to use Eligible API.
 
