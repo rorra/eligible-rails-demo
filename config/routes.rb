@@ -5,5 +5,9 @@ EligibleRailsDemo::Application.routes.draw do
 
   resource :settings, only: [:edit, :update]
 
+  resources :providers
+
+  get '/about', to: 'home#about', as: :about
+
   root 'home#index'
 end

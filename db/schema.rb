@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130917145121) do
+ActiveRecord::Schema.define(version: 20130917185940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,18 @@ ActiveRecord::Schema.define(version: 20130917145121) do
   end
 
   add_index "payers", ["payer_id"], name: "index_payers_on_payer_id", unique: true, using: :btree
+
+  create_table "providers", force: true do |t|
+    t.integer  "user_id"
+    t.string   "npi"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "providers", ["npi"], name: "index_providers_on_npi", using: :btree
+  add_index "providers", ["user_id"], name: "index_providers_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

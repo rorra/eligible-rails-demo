@@ -43,7 +43,14 @@
           <li class="<%= params[:controller] == 'home' && params[:action] == 'index' ? 'active' : '' %>">
             <%= link_to("Home", root_path) %>
           </li>
-          <li><a href="#about">About</a></li>
+          <%- if user_signed_in? %>
+            <li class="<%= params[:controller] == 'providers' ? 'active' : '' %>">
+              <%= link_to("Providers", providers_path) %>
+            </li>
+            <li class="<%= params[:controller] == 'home' && params[:action] == 'about' ? 'active' : '' %>">
+              <%= link_to("About", about_path) %>
+            </li>
+          <%- end %>
         </ul>
       </div>
       <!--/.nav-collapse -->
