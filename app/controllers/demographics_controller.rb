@@ -5,6 +5,7 @@ class DemographicsController < ApplicationController
 
   def create
     @demographic = Demographic.new
+    @demographic.api_key = current_user.api_key
 
     if @demographic.valid?
       # Do the demographic submit here
