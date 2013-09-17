@@ -1,0 +1,29 @@
+<div class="login-form">
+
+  <h2>Settings</h2>
+
+  <%- unless @user.ready_for_api_calls? %>
+    <div class="well">
+      You need to insert an api key in order to try our services.<br/>
+      You can get an api key by registering into <a href="http://www.eligibleapi.com" target="_blank">wwweligibleapi.com</a>.
+    </div>
+  <%- end %>
+
+
+  <%= simple_form_for(@user, url: settings_path, method: :put, html: { class: 'form-horizontal' }) do |f| %>
+    <%= render '/shared/simple_form_errors', f: f %>
+
+    <div class="form-inputs">
+      <%= f.input :api_key %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Save" %>
+      <%- if @user.ready_for_api_calls? %>
+        <%= link_to "Cancel", root_path, class: 'btn' %>
+      <%- end %>
+    </div>
+  <% end %>
+
+
+</div>

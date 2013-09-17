@@ -3,5 +3,7 @@ EligibleRailsDemo::Application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users
 
+  resource :settings, only: [:edit, :update]
+
   root 'home#index'
 end
