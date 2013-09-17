@@ -17,6 +17,6 @@ if Payer.count == 0
 end
 
 # Seed Service Types
-if ServiceTypes.count == 0
+if ServiceType.count == 0
   Rake::Task['eligible:sync_payer_types'].invoke
 end
