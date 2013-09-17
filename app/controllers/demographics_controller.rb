@@ -1,10 +1,10 @@
 class DemographicsController < ApplicationController
   def new
-    @demographic = Demographic.new
+    @demographic = Eligible::Demographic.new
   end
 
   def create
-    @demographic = Demographic.new
+    @demographic = Eligible::Demographic.new
     @demographic.api_key = current_user.api_key
 
     if @demographic.valid?

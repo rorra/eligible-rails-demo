@@ -1,0 +1,33 @@
+<div class="demographics-content">
+  <h1>Coverage</h1>
+
+  <%= simple_form_for @coverage, url: coverage_path, html: { class: 'form-horizontal' } do |f| %>
+    <div class="form-inputs">
+      <%= field_set_tag 'Payer' do %>
+        <%= f.input :payer_id, label: 'payer_id' %>
+      <% end %>
+
+      <%= field_set_tag 'Service' do %>
+        <%= f.input :service_type %>
+      <% end %>
+
+      <%= field_set_tag 'Provider' do %>
+        <%= f.input :provider_npi %>
+        <%= f.input :provider_first_name %>
+        <%= f.input :provider_last_name %>
+      <% end %>
+
+      <%= field_set_tag 'Member' do %>
+        <%= f.input :member_id %>
+        <%= f.input :member_first_name %>
+        <%= f.input :member_last_name %>
+        <%= f.input :member_dob %>
+      <% end %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+    </div>
+
+  <%- end %>
+</div>

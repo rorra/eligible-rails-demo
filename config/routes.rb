@@ -8,7 +8,7 @@ EligibleRailsDemo::Application.routes.draw do
   resources :providers
   resources :enrollments
   resource :demographics, only: [:new, :create]
-  resource :coverage, only: [:show], controller: :coverage
+  resource :coverage, only: [:new, :create], controller: :coverage
   resources :claims, only: [:index]
   resources :tickets
   resource :x12, only: [:show], controller: :x12
