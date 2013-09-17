@@ -1,1 +1,28 @@
-aaa
+<div class="main-content">
+  <h1>Providers</h1>
+
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>NPI</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%- @providers.each do |provider| %>
+      <td><%= link_to(provider.npi, provider) %></td>
+      <td><%= provider.first_name %></td>
+      <td><%= provider.last_name %></td>
+      <td><%= link_to("Edit", [:edit, provider]) %></td>
+    <%- end %>
+    </tbody>
+  </table>
+
+  <%- if @providers %><%= paginate(@providers) %><%- end %>
+
+  <hr/>
+  <%= link_to("New Provider", [:new, :provider], class: 'btn btn-primary btn-large') %>
+
+</div>

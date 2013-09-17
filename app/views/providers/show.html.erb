@@ -1,0 +1,26 @@
+<div class="default-form">
+  <h1>Provider</h1>
+
+  <table class="table table-hover">
+    <tr>
+      <th>NPI</th>
+      <td><%= @provider.npi %></td>
+    </tr>
+    <tr>
+      <th>First Name</th>
+      <td><%= @provider.first_name %></td>
+    </tr>
+    <tr>
+      <th>Last Name</th>
+      <td><%= @provider.last_name %></td>
+    </tr>
+  </table>
+  <hr/>
+
+  <div class="center">
+    <%= link_to("List", [:providers], class: 'btn btn-primary') %>
+    <%= link_to("Edit", [:edit, @provider], class: 'btn btn-primary') %>
+    <%= link_to("Delete", @provider, method: :delete, confirm: "Are you sure?", class: 'btn btn-primary btn-danger') %>
+  </div>
+
+</div>

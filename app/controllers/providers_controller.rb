@@ -2,7 +2,7 @@ class ProvidersController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @providers = current_user.providers
+    @providers = current_user.providers.page(params[:page])
   end
 
   def show
@@ -14,9 +14,10 @@ class ProvidersController < ApplicationController
   end
 
   def create
-    @provider = Provider.new
-    if @provider.create(params[:provider])
-      redirect_to provider_path(@provider), success: "Provider Saved"
+    @provider = Provider.new(provider_params)
+    @provider.user_id = current_user.id
+    if @provider.save
+      redirect_to provider_path(@provider), notice: "Provider Saved"
     else
       render :new
     end
@@ -29,7 +30,7 @@ class ProvidersController < ApplicationController
   def update
     @provider = current_user.providers.find(params[:id])
     if @provider.update_attributes(provider_params)
-      redirect_to provider_path(@provider), success: "Provider Updated"
+      redirect_to provider_path(@provider), notice: "Provider Updated"
     else
       render :edit
     end
@@ -38,9 +39,9 @@ class ProvidersController < ApplicationController
   def destroy
     @provider = current_user.providers.find(params[:id])
     if @provider.destroy
-      redirect_to providers_path, success: "Provider Deleted"
+      redirect_to providers_path, notice: "Provider Deleted"
     else
-      redirect_to :back, error: "There was an error trying to delete the Provider"
+      redirect_to :back, alert: "There was an error trying to delete the Provider"
     end
   end
 

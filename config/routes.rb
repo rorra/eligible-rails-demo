@@ -7,7 +7,5 @@ EligibleRailsDemo::Application.routes.draw do
 
   resources :providers
 
-  get '/about', to: 'home#about', as: :about
-
   root 'home#index'
 end

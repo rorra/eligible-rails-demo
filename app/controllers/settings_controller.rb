@@ -8,7 +8,7 @@ class SettingsController < ApplicationController
   def update
     @user = current_user
     if @user.update_attributes(user_params)
-      redirect_to root_path, success: "Your settings has been updated"
+      redirect_to root_path, notice: "Your settings has been updated"
     else
       render :edit
     end

@@ -26,7 +26,7 @@
             <!-- Link or button to toggle dropdown -->
             <a class="dropdown-toggle btn" data-toggle="dropdown" href="#"><%= current_user.first_name %></a>
             <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-              <li><a tabindex="-1" href="<%= settings_path %>">Settings</a></li>
+              <li><a tabindex="-1" href="<%= edit_settings_path %>">Settings</a></li>
               <li><a tabindex="-1" href="<%= edit_user_registration_path %>">Profile</a></li>
               <li class="divider"></li>
               <li><a tabindex="-1" href="<%= destroy_user_session_path %>" data-method="delete">Logout</a></li>
@@ -47,9 +47,12 @@
             <li class="<%= params[:controller] == 'providers' ? 'active' : '' %>">
               <%= link_to("Providers", providers_path) %>
             </li>
-            <li class="<%= params[:controller] == 'home' && params[:action] == 'about' ? 'active' : '' %>">
-              <%= link_to("About", about_path) %>
-            </li>
+            <li><%= link_to("Enrollments", "#") %></li>
+            <li><%= link_to("Demographics", "#") %></li>
+            <li><%= link_to("Coverage", "#") %></li>
+            <li><%= link_to("Claims", "#") %></li>
+            <li><%= link_to("Tickets", "#") %></li>
+            <li><%= link_to("X12", "#") %></li>
           <%- end %>
         </ul>
       </div>
