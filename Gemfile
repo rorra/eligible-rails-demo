@@ -24,3 +24,7 @@ group :development, :test do
   gem 'rspec-rails'                                                      # Rspec for testing
 end
 
+group :production do
+  gem 'rails_12factor'                                                   # Heroku assets compilation
+end
+
