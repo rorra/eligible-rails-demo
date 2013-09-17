@@ -1,0 +1,2 @@
+class CoverageController < ApplicationController
+end

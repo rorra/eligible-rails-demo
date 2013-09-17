@@ -47,12 +47,24 @@
             <li class="<%= params[:controller] == 'providers' ? 'active' : '' %>">
               <%= link_to("Providers", providers_path) %>
             </li>
-            <li><%= link_to("Enrollments", "#") %></li>
-            <li><%= link_to("Demographics", "#") %></li>
-            <li><%= link_to("Coverage", "#") %></li>
-            <li><%= link_to("Claims", "#") %></li>
-            <li><%= link_to("Tickets", "#") %></li>
-            <li><%= link_to("X12", "#") %></li>
+            <li class="<%= params[:controller] == 'enrollments' ? 'active' : '' %>">
+              <%= link_to("Enrollments", enrollments_path) %>
+            </li>
+            <li class="<%= params[:controller] == 'demographics' ? 'active' : '' %>">
+              <%= link_to("Demographics", demographics_path) %>
+            </li>
+            <li class="<%= params[:controller] == 'coverage' ? 'active' : '' %>">
+              <%= link_to("Coverage", coverage_path) %>
+            </li>
+            <li class="<%= params[:controller] == 'claims' ? 'active' : '' %>">
+              <%= link_to("Claims", claims_path) %>
+            </li>
+            <li class="<%= params[:controller] == 'tickets' ? 'active' : '' %>">
+              <%= link_to("Tickets", tickets_path) %>
+            </li>
+            <li class="<%= params[:controller] == 'x12' ? 'active' : '' %>">
+              <%= link_to("X12", x12_path) %>
+            </li>
           <%- end %>
         </ul>
       </div>
