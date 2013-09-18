@@ -42,9 +42,6 @@
           </p>
         <%- end %>
         <ul class="nav">
-          <li class="<%= params[:controller] == 'home' && params[:action] == 'index' ? 'active' : '' %>">
-            <%= link_to("Home", root_path) %>
-          </li>
           <%- if user_signed_in? %>
             <li class="<%= params[:controller] == 'providers' ? 'active' : '' %>">
               <%= link_to("Providers", providers_path) %>
