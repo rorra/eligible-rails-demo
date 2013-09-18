@@ -15,6 +15,7 @@ gem 'devise'                                                             # Auth
 gem 'simple_form', '>= 3.0.0.rc'                                         # Easy form
 gem 'activeadmin', git: 'https://github.com/gregbell/active_admin.git', branch: 'rails4'   # Active Admin
 gem 'kaminari'                                                           # Pagination
+gem 'rest-client'                                                        # REST client gem
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

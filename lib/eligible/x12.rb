@@ -6,6 +6,12 @@ module Eligible
 
     validates :x12, presence: true
 
+    def to_hash(include_blank = true)
+      response = {}
+      [:api_key, :x12].each { |k| response[k] = self.send(k) if include_blank || !self.send(k).blank? }
+      response
+    end
+
     def to_query_string
       keys = [:api_key, :x12]
       values = []

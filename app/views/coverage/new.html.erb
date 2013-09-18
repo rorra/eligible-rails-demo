@@ -2,36 +2,44 @@
   <%= javascript_include_tag 'coverage' %>
 <%- end %>
 
-<div class="endpoint-content">
+<div class="main-content">
   <h1>Coverage</h1>
 
-  <%= simple_form_for @coverage, url: coverage_path, html: { class: 'form-horizontal' } do |f| %>
-    <div class="form-inputs">
-      <%= field_set_tag 'Payer' do %>
-        <%= f.input :payer_id, label: 'ID', input_html: { style: 'width: 80%;' } %>
-      <% end %>
-
-      <%= field_set_tag 'Service' do %>
-        <%= f.input :service_type, label: 'Code', input_html: { style: 'width: 80%;' } %>
-      <% end %>
-
-      <%= field_set_tag 'Provider' do %>
-        <%= f.input :provider_npi, label: 'NPI' %>
-        <%= f.input :provider_first_name, label: 'First Name' %>
-        <%= f.input :provider_last_name, label: 'Last Name' %>
-      <% end %>
-
-      <%= field_set_tag 'Member' do %>
-        <%= f.input :member_id, label: 'ID' %>
-        <%= f.input :member_first_name, label: 'First Name' %>
-        <%= f.input :member_last_name, label: 'Last Name' %>
-        <%= f.input :member_dob, label: 'DOB' %>
-      <% end %>
-    </div>
-
-    <div class="form-actions">
-      <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
-    </div>
-
+  <%- unless @raw_json.blank? %>
+    <div style="display: none;" id="raw_json"><%= @raw_json %></div>
+    <div id="human_json"></div>
   <%- end %>
+
+  <div class="endpoint-content">
+
+    <%= simple_form_for @coverage, url: coverage_path, html: { class: 'form-horizontal' } do |f| %>
+      <div class="form-inputs">
+        <%= field_set_tag 'Payer' do %>
+          <%= f.input :payer_id, label: 'ID', input_html: { style: 'width: 80%;' } %>
+        <% end %>
+
+        <%= field_set_tag 'Service' do %>
+          <%= f.input :service_type, label: 'Code', input_html: { style: 'width: 80%;' } %>
+        <% end %>
+
+        <%= field_set_tag 'Provider' do %>
+          <%= f.input :provider_npi, label: 'NPI' %>
+          <%= f.input :provider_first_name, label: 'First Name' %>
+          <%= f.input :provider_last_name, label: 'Last Name' %>
+        <% end %>
+
+        <%= field_set_tag 'Member' do %>
+          <%= f.input :member_id, label: 'ID' %>
+          <%= f.input :member_first_name, label: 'First Name' %>
+          <%= f.input :member_last_name, label: 'Last Name' %>
+          <%= f.input :member_dob, label: 'DOB' %>
+        <% end %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+      </div>
+
+    <%- end %>
+  </div>
 </div>

@@ -10,7 +10,9 @@ class X12Controller < ApplicationController
     @x12.api_key = current_user.api_key
 
     if @x12.valid?
-      # Do the demographic submit here
+      @result = RestClient.get(ELIGIBLE_X12_URL, params: @demographic.to_hash(false))
+      a = 1
+      b = 2
     else
       render :new
     end

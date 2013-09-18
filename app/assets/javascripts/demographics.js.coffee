@@ -32,3 +32,6 @@ $(document).ready ->
     id: (object) ->
       object.payer_id
 
+  if $("#raw_json").size() > 0
+    node = prettyPrint(JSON.parse($('#raw_json').html()), maxDepth: 8)
+    $("#human_json").append(node)
