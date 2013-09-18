@@ -1,5 +1,5 @@
 class ProvidersController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :ask_for_api_key
 
   def index
     @providers = current_user.providers.page(params[:page])

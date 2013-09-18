@@ -1,4 +1,6 @@
 class CoverageController < ApplicationController
+  before_filter :authenticate_user!, :ask_for_api_key
+
   def new
     @coverage = Eligible::Coverage.new
   end

@@ -1,4 +1,6 @@
 class DemographicsController < ApplicationController
+  before_filter :authenticate_user!, :ask_for_api_key
+
   def new
     @demographic = Eligible::Demographic.new
   end
