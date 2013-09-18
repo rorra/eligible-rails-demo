@@ -13,5 +13,8 @@ EligibleRailsDemo::Application.routes.draw do
   resources :tickets
   resource :x12, only: [:show], controller: :x12
 
+  resources :payers, only: [:index]
+  resources :service_types, only: [:index]
+
   root 'home#index'
 end

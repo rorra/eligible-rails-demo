@@ -9,7 +9,7 @@ gem 'sass-rails', '~> 4.0.0'                                             # SCSS 
 gem 'uglifier', '>= 1.3.0'                                               # Uglifier as compressor for JavaScript assets
 gem 'coffee-rails', '~> 4.0.0'                                           # CoffeeScript for .js.coffee assets and views
 gem 'jquery-rails'                                                       # jquery as the JavaScript library
-gem 'turbolinks'                                                         # Faster js links
+#gem 'turbolinks'                                                         # Faster js links
 gem 'jbuilder', '~> 1.2'                                                 # JSON API
 gem 'devise'                                                             # Auth
 gem 'simple_form', '>= 3.0.0.rc'                                         # Easy form

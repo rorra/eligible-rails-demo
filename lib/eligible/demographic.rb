@@ -1,8 +1,6 @@
 module Eligible
   class Demographic
-    include ActiveModel::Validations
-    include ActiveModel::Conversion
-    extend ActiveModel::Naming
+    include ActiveModel::Model
 
     attr_accessor :api_key, :payer_id, :provider_npi, :provider_first_name, :provider_last_name,
                   :member_id, :member_first_name, :member_last_name, :member_dob, :member_ssn, :member_gender

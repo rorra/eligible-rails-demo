@@ -3,6 +3,7 @@ class CoverageController < ApplicationController
 
   def new
     @coverage = Eligible::Coverage.new
+    @coverage.service_type = '30'
   end
 
   def create
