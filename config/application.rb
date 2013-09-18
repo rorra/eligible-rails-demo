@@ -4,6 +4,7 @@ require 'rails/all'
 
 require "#{File.dirname(__FILE__)}/../lib/eligible/coverage"
 require "#{File.dirname(__FILE__)}/../lib/eligible/demographic"
+require "#{File.dirname(__FILE__)}/../lib/eligible/x12"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.

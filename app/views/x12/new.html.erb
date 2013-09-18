@@ -1,0 +1,14 @@
+<div class="endpoint-content">
+  <h1>X12</h1>
+
+  <%= simple_form_for @x12, url: x12_path, html: { class: 'form-horizontal' } do |f| %>
+    <div class="form-inputs">
+      <%= f.input :x12, label: "X12", as: :text, input_html: { style: 'height: 400px;width: 90%' } %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+    </div>
+
+  <%- end %>
+</div>

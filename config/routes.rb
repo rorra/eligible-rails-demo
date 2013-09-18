@@ -11,7 +11,7 @@ EligibleRailsDemo::Application.routes.draw do
   resource :coverage, only: [:new, :create], controller: :coverage
   resources :claims, only: [:index]
   resources :tickets
-  resource :x12, only: [:show], controller: :x12
+  resource :x12, only: [:new, :create], controller: :x12
 
   resources :payers, only: [:index]
   resources :service_types, only: [:index]

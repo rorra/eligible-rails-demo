@@ -16,4 +16,12 @@ class CoverageController < ApplicationController
       render :new
     end
   end
+
+  private
+
+  def demographic_params
+    params.require(:eligible_coverage).permit(:payer_id, :provider_npi, :provider_first_name, :provider_last_name,
+                                              :member_id, :member_first_name, :member_last_name,
+                                              :member_dob, :service_type)
+  end
 end

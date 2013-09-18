@@ -62,7 +62,7 @@
               <%= link_to("Tickets", tickets_path) %>
             </li>
             <li class="<%= params[:controller] == 'x12' ? 'active' : '' %>">
-              <%= link_to("X12", x12_path) %>
+              <%= link_to("X12", new_x12_path) %>
             </li>
           <%- end %>
         </ul>
