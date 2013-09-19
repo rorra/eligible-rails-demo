@@ -5,9 +5,136 @@
 <div class="main-content">
   <h1>Coverage</h1>
 
-  <%- unless @raw_json.blank? %>
+  <%- if @json && @json['error'].nil? %>
+    <h3>Demographics</h3>
+    <table class="table table-hover">
+      <tr>
+        <th>Full Name</th>
+        <td><%= @full_name %></td>
+      </tr>
+      <tr>
+        <th>DOB</th>
+        <td><%= @dob %></td>
+      </tr>
+      <tr>
+        <th>Street</th>
+        <td><%= raw @address[:street].join("<br/>") %></td>
+      </tr>
+      <tr>
+        <th>City</th>
+        <td><%= @address[:city] %></td>
+      </tr>
+      <tr>
+        <th>State</th>
+        <td><%= @address[:state] %></td>
+      </tr>
+      <tr>
+        <th>ZIP</th>
+        <td><%= @address[:zip] %></td>
+      </tr>
+    </table>
+
+    <h3>Plan</h3>
+    <table class="table table-hover">
+      <tr>
+        <th>Active Plan</th>
+        <td><%= @plan_coverage[:active] ? 'Yes' : 'No' %> (<%= @plan_coverage[:description] %>)</td>
+      </tr>
+      <%- unless @plan[:name].blank? %>
+        <tr>
+          <th>Plan Name</th>
+          <td><%= @plan[:name] %></td>
+        </tr>
+      <%- end %>
+      <%- unless @plan[:group_name].blank? %>
+        <tr>
+          <th>Group Name</th>
+          <td><%= @plan[:group_name] %></td>
+        </tr>
+      <%- end %>
+      <%- if @plan_remaining[:deductible][:in_network].size > 0 %>
+        <tr>
+          <th>Deductible</th>
+          <td>
+            <table class="table table-bordered inner-table">
+              <%- @plan_remaining[:deductible][:in_network].each do |remaining| %>
+                <tr>
+                  <th><%= remaining[:level] %></th>
+                  <td><%= number_to_currency(remaining[:amount].to_f) %></td>
+                </tr>
+              <%- end %>
+            </table>
+          </td>
+        </tr>
+      <%- end %>
+      <%- if @plan_remaining[:stop_loss][:in_network].size > 0 %>
+        <tr>
+          <th>Stop Loss</th>
+          <td>
+            <table class="table table-bordered inner-table">
+              <%- @plan_remaining[:stop_loss][:in_network].each do |remaining| %>
+                <tr>
+                  <th><%= remaining[:level] %></th>
+                  <td><%= number_to_currency(remaining[:amount].to_f) %></td>
+                </tr>
+              <%- end %>
+            </table>
+          </td>
+        </tr>
+      <%- end %>
+    </table>
+
+    <%- if @service %>
+      <h3>Service</h3>
+      <table class="table table-hover">
+        <tr>
+          <th>Code</th>
+          <td><%= @service[:type] %></td>
+        </tr>
+        <tr>
+          <th>Description</th>
+          <td><%= @service[:label] %></td>
+        </tr>
+        <tr>
+          <th>Active</th>
+          <td><%= @service[:active] ? 'Yes' : 'No' %> (<%= @service[:description] %>)</td>
+        </tr>
+        <%- if @service_remaining[:deductible][:in_network].size > 0 %>
+          <tr>
+            <th>Deductible</th>
+            <td>
+              <table class="table table-bordered inner-table">
+                <%- @service_remaining[:deductible][:in_network].each do |remaining| %>
+                  <tr>
+                    <th><%= remaining[:level] %></th>
+                    <td><%= number_to_currency(remaining[:amount].to_f) %></td>
+                  </tr>
+                <%- end %>
+              </table>
+            </td>
+          </tr>
+        <%- end %>
+        <%- if @service_remaining[:stop_loss][:in_network].size > 0 %>
+          <tr>
+            <th>Stop Loss</th>
+            <td>
+              <table class="table table-bordered inner-table">
+                <%- @service_remaining[:stop_loss][:in_network].each do |remaining| %>
+                  <tr>
+                    <th><%= remaining[:level] %></th>
+                    <td><%= number_to_currency(remaining[:amount].to_f) %></td>
+                  </tr>
+                <%- end %>
+              </table>
+            </td>
+          </tr>
+        <%- end %>        
+      </table>
+    <%- end %>
+
+
     <div style="display: none;" id="raw_json"><%= @raw_json %></div>
-    <div id="human_json"></div>
+    <div style="display: none;" id="human_json"></div>
   <%- end %>
 
   <div class="endpoint-content">
