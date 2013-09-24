@@ -6,16 +6,18 @@ class X12Controller < ApplicationController
   end
 
   def create
-    @x12 = Eligible::X12.new
+    @x12 = Eligible::X12.new(x12_params)
     @x12.api_key = current_user.api_key
 
     if @x12.valid?
-      @result = RestClient.get(ELIGIBLE_X12_URL, params: @demographic.to_hash(false))
-      a = 1
-      b = 2
-    else
-      render :new
+      begin
+        @result = RestClient.get(ELIGIBLE_X12_URL, params: @x12.to_hash(false))
+      rescue Exception => ex
+        flash[:warning] = ex.message
+      end
     end
+
+    render :new
   end
 
   private

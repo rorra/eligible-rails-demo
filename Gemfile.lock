@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/gregbell/active_admin.git
-  revision: ac4918ef99cf0272eb5f744b7e3f3fc7cde5811f
+  revision: 85b9f816480988bf00aa142c9638b5212b51113a
   branch: rails4
   specs:
     activeadmin (0.6.0)
@@ -85,8 +85,7 @@ GEM
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    jquery-ui-rails (4.0.4)
-      jquery-rails
+    jquery-ui-rails (4.0.5)
       railties (>= 3.1.0)
     json (1.8.0)
     kaminari (0.14.1)
@@ -131,7 +130,7 @@ GEM
       polyamorous (~> 0.6.0)
     rdoc (3.12.2)
       json (~> 1.4)
-    responders (1.0.0.rc)
+    responders (1.0.0)
       railties (>= 3.2, < 5)
     rest-client (1.6.7)
       mime-types (>= 1.16)

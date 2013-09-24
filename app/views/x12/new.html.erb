@@ -1,6 +1,15 @@
 <div class="endpoint-content">
   <h1>X12</h1>
 
+  <%- if @result %>
+    <table class="table table-hover">
+      <tr>
+        <th>X12</th>
+        <td><%= @result %></td>
+      </tr>
+    </table>
+  <%- end %>
+
   <%= simple_form_for @x12, url: x12_path, html: { class: 'form-horizontal' } do |f| %>
     <div class="form-inputs">
       <%= f.input :x12, label: "X12", as: :text, input_html: { style: 'height: 400px;width: 90%' } %>

@@ -30,10 +30,9 @@ class CoverageController < ApplicationController
       rescue Exception => ex
         flash[:warning] = ex.message
       end
-      render :new
-    else
-      render :new
     end
+
+    render :new
   end
 
   private
